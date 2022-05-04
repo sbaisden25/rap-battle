@@ -51,7 +51,7 @@ function App() {
       setToken(tokenResponse.data.access_token);
       handleReset()
     })
-  }, [1]);
+  }, []);
 
   // Spotify API authorization
   useEffect(() => {
