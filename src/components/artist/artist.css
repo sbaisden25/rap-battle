@@ -1,12 +1,12 @@
 img {
-    height: 270px;
+    height: 250px;
     border-radius: 50%;
     position: relative;
     margin-bottom: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 270px;
+    width: 200px;
   }
 
 /* Make each artist clickable */
