@@ -14,7 +14,13 @@ function App() {
 
   const spotify = Credentials();  
   const [token, setToken] = useState(); 
-  const [matchup, setMatchup] = useState(0); 
+  const [matchup, setMatchup] = useState(["Nicki Minaj",
+    90,
+    "https://i.scdn.co/image/ab6761610000e5ebaf3459f7c235fd25daf7f84f",
+    "Drake",
+    98,
+    "https://i.scdn.co/image/ab6761610000e5eb9e46a78c5cd2f7a8e7669980"
+  ]); 
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
 
