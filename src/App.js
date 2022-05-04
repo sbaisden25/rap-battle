@@ -13,8 +13,8 @@ import Popularity from './components/popularity/Popularity';
 function App() {
 
   const spotify = Credentials();  
-  const [token, setToken] = useState(''); 
-  const [matchup, setMatchup] = useState(''); 
+  const [token, setToken] = useState(); 
+  const [matchup, setMatchup] = useState(0); 
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
 
