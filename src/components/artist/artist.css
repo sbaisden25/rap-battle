@@ -1,0 +1,24 @@
+img {
+    height: 270px;
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 270px;
+  }
+
+/* Make each artist clickable */
+.artist {
+    padding-top: 10%;
+}
+
+.artist-name {
+    text-align: center;
+    font-family: 'Lora', sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
