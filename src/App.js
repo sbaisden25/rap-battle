@@ -39,37 +39,8 @@ function App() {
 
   // Get token so matchup works on first load
   useEffect(() => {
-  axios('https://accounts.spotify.com/api/token', {
-      headers: {
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'Authorization' : 'Basic ' + btoa(spotify.ClientId + ':' + spotify.ClientSecret)
-      },
-      data: 'grant_type=client_credentials',
-      method: 'POST'
-    })
-    .then(tokenResponse => {      
-      setToken(tokenResponse.data.access_token);
-      handleReset()
-    })
+      handleReset();
   }, []);
-
-  // Spotify API authorization
-  useEffect(() => {
-  axios('https://accounts.spotify.com/api/token', {
-      headers: {
-        'Content-Type' : 'application/x-www-form-urlencoded',
-        'Authorization' : 'Basic ' + btoa(spotify.ClientId + ':' + spotify.ClientSecret)
-      },
-      data: 'grant_type=client_credentials',
-      method: 'POST'
-    })
-    .then(tokenResponse => {      
-      setToken(tokenResponse.data.access_token);
-
-      handleReset() // reset the page with a new matchup but keeps user score
-
-    })
-  }, [spotify.ClientId, spotify.ClientSecret]);     
 
   
   //calcMorePopular() will calulate which rapper is more popular
@@ -134,6 +105,19 @@ function App() {
   // reset the page with a new matchup but keep the score
   function handleReset() {
     const query = getQuery();
+
+    axios('https://accounts.spotify.com/api/token', {
+      headers: {
+        'Content-Type' : 'application/x-www-form-urlencoded',
+        'Authorization' : 'Basic ' + btoa(spotify.ClientId + ':' + spotify.ClientSecret)
+      },
+      data: 'grant_type=client_credentials',
+      method: 'POST'
+    })
+    .then(tokenResponse => {      
+      setToken(tokenResponse.data.access_token);
+    })
+
     axios(`https://api.spotify.com/v1/artists?ids=${query}`, {
       method: 'GET',
       headers: {
