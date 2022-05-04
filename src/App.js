@@ -18,6 +18,18 @@ function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
 
+  axios('https://accounts.spotify.com/api/token', {
+      headers: {
+        'Content-Type' : 'application/x-www-form-urlencoded',
+        'Authorization' : 'Basic ' + btoa(spotify.ClientId + ':' + spotify.ClientSecret)
+      },
+      data: 'grant_type=client_credentials',
+      method: 'POST'
+    })
+    .then(tokenResponse => {      
+      setToken(tokenResponse.data.access_token);
+    })
+
   //get the query for api call for both artists info
   function getQuery() {
     var rapper1 = getRandomRapperId();
